@@ -6,12 +6,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    background-image: url(fun.png);
 }
 
 /* Estilo para o cabeçalho (h1) */
 h1 {
     text-align: center;
-    color: #333;
+    color:white;
 }
 
 /* Estilo para o formulário */

@@ -3,142 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Livraria Online</title>
-    <style>
     
-        /* Estilos para o corpo da página */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('fundo.jpeg'); /* Altere o nome da imagem conforme necessário */
-    background-size: cover; /* Para cobrir todo o corpo */
-    background-repeat: no-repeat; /* Para evitar a repetição da imagem */
-    background-attachment: fixed; /* Para manter a imagem fixa na tela */
-    background-position: center; /* Centralize a imagem na tela */
-}
-
-
-        /* Estilos para o cabeçalho */
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Estilos para os livros na livraria */
-        .livro {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 20px;
-            display: inline-block;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .livro img {
-            max-width: 100px;
-        }
-
-        .livro h2 {
-            font-size: 1.2em;
-            margin: 5px 0;
-        }
-
-        .livro p {
-            font-size: 0.9em;
-            margin: 5px 0;
-        }
-
-        /* Estilos para o carrinho de compras */
-        aside {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            width: 300px;
-            position: fixed;
-            right: 0;
-            top: 0;
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        h2 {
-            font-size: 1.4em;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 10px 0;
-            font-size: 1.1em;
-        }
-
-        /* Estilos para o formulário */
-        form {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        input[type="range"] {
-            width: 80%;
-        }
-
-        input[type="number"] {
-            width: 80px;
-        }
-
-        input[type="button"] {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-
-        input[type="button"]:hover {
-            background-color: #555;
-        }
-    </style>
 </head>
-<body background="fundo.jpeg">
+<body>
     <header>
         <h1>Livraria Online</h1>
     </header>
     <main>
         <div class="livro">
             <img src="pj.png" alt="Livro 1">
-            <h2>Livro 1</h2>
-            <p>Autor: Autor 1</p>
+            <h2>O Ladrão de Raios - <p>Percy Jackson e os Olimpianos 1</p></h2>
+            <p>Autor: Rick Riordan</p>
             <p>Preço: R$ 29,99</p>
             <button onclick="adicionarAoCarrinho('Livro 1', 29.99)">Adicionar ao Carrinho</button>
         </div>
         <div class="livro">
             <img src="N.png" alt="Livro 2">
-            <h2>Livro 2</h2>
-            <p>Autor: Autor 2</p>
+            <h2>Naruto Vol. 43</h2>
+            <p>Autor: Masashi Kishimoto</p>
             <p>Preço: R$ 24,99</p>
             <button onclick="adicionarAoCarrinho('Livro 2', 24.99)">Adicionar ao Carrinho</button>
         </div>
-        <!-- Adicione mais livros aqui -->
+        <!-- Add more books here -->
     </main>
     <aside>
         <h2>Carrinho de Compras</h2>
         <ul id="carrinho">
-            <!-- Itens do carrinho serão adicionados aqui via JavaScript -->
+            <!-- Cart items will be added here via JavaScript -->
         </ul>
         <p>Total: <span id="total">R$ 0.00</span></p>
     </aside>
+    <form>
+        <label for="valorCompra">Insira o valor total da sua compra:</label>
+        <input type="number" id="valorCompra" placeholder="Insira o valor em R$">
+        <button type="button" onclick="calcularDesconto()" id="botao">Calcular Desconto</button>
+        <p>Desconto aplicado: <span id="desconto"></span></p>
+    </form>
+    <form>
+        <label for="satisfacao">Defina seu nível de satisfação:</label><br>   
+        Pouco Satisfeito
+        <input type="range" id="satisfacao" name="Satisfeito" min="0" max="10">
+        Muito Satisfeito
+
+        <br> 
+        Quantidade (entre 1 e 5) <input type="number" id="quantidade" name="quantidade" min="1" max="5">
+        <br>
+
+        <input type="button" value="Clique Aqui" onclick="msg()">
+    </form>
     <script>
         let carrinho = [];
         let total = 0;
@@ -158,16 +72,9 @@ body {
                 listItem.textContent = `${item.livro} - R$ ${item.preco.toFixed(2)}`;
                 carrinhoList.appendChild(listItem);
             });
-            totalElement.textContent = `R$ ${total.toFixed(2)}`;
+            totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
         }
-    </script>
 
-    <p>Insira o valor total da sua compra:</p>
-    <input type="number" id="valorCompra" placeholder="Insira o valor em R$">
-    <button onclick="calcularDesconto()" id="botao">Calcular Desconto</button>
-    <p>Desconto aplicado: <span id="desconto"></span></p>
-
-    <script>
         function calcularDesconto() {
             const valorCompra = parseFloat(document.getElementById('valorCompra').value);
 
@@ -178,42 +85,21 @@ body {
             } else if (valorCompra > 100) {
                 desconto = 0.1; // 10%
             } else if (valorCompra <= 100) {
-                desconto = 0.05;
+                desconto = 0.05; // 5%
             }
 
             const valorDesconto = valorCompra * desconto;
             document.getElementById('desconto').textContent = `R$ ${valorDesconto.toFixed(2)}`;
         }
-    </script>
-    <form>
-        Defina seu nível de satisfação:<br>   
-        Pouco Satisfeito
-        <input type="range" name="Satisfeito" min="0" max="10">
-        Muito Satisfeito
 
-        <br> 
-        Quantidade (entre 1 e 5) <input type="number" name="quantidade" min="1" max="5">
-
-        <input type="button" value="Clique Aqui" onclick="msg()">
-    </form>
-   
-   <script>
         function msg() {
             alert("Você clicou no botão!");
         }
     </script>
-
-
-<div class="secadastre">
-
-    <li><a href="pagina2.html">
-    Se Cadastre so nosso site.
-    </a></li>
-
-
-</div>
-
-
-
+    <div class="secadastre">
+        <a href="pagina2.html">Cadastre-se em nosso site</a>
+    </div>
 </body>
 </html>
+
+

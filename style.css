@@ -1,108 +1,167 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('fun.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Estilos do cabeçalho */
+header {
+    background-color:rgba(53, 53, 75, 0.5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos para os livros na livraria */
+.livro {
+    background-color: rgba(53, 53, 75);
+    color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 40px;
+}
+
+.livro img {
+    max-width: 250px;
+}
+
+.livro h2 {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.livro p {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.livro button {
+    color: #507ddf;
+    border: 2px solid #507ddf;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
     
-        /* Estilos para o corpo da página */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('fundo.jpeg'); /* Altere o nome da imagem conforme necessário */
-            background-size: cover; /* Para cobrir todo o corpo */
-            background-repeat: no-repeat; /* Para evitar a repetição da imagem */
-            background-attachment: fixed; /* Para manter a imagem fixa na tela */
-            background-position: center; /* Centralize a imagem na tela */
-        }
-        
-        
-                /* Estilos para o cabeçalho */
-                header {
-                    background-color: #333;
-                    color: white;
-                    text-align: center;
-                    padding: 20px;
-                }
-        
-                /* Estilos para os livros na livraria */
-                .livro {
-                    background-color: white;
-                    border: 1px solid #ddd;
-                    padding: 20px;
-                    margin: 20px;
-                    display: inline-block;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    text-align: center;
-                }
-        
-                .livro img {
-                    max-width: 100px;
-                }
-        
-                .livro h2 {
-                    font-size: 1.2em;
-                    margin: 5px 0;
-                }
-        
-                .livro p {
-                    font-size: 0.9em;
-                    margin: 5px 0;
-                }
-        
-                /* Estilos para o carrinho de compras */
-                aside {
-                    background-color: #333;
-                    color: white;
-                    padding: 20px;
-                    width: 300px;
-                    position: fixed;
-                    right: 0;
-                    top: 0;
-                    height: 100%;
-                    overflow-y: auto;
-                }
-        
-                h2 {
-                    font-size: 1.4em;
-                }
-        
-                ul {
-                    list-style: none;
-                    padding: 0;
-                }
-        
-                li {
-                    margin: 10px 0;
-                    font-size: 1.1em;
-                }
-        
-                /* Estilos para o formulário */
-                form {
-                    background-color: white;
-                    border: 1px solid #ddd;
-                    padding: 20px;
-                    margin: 20px;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    text-align: center;
-                }
-        
-                input[type="range"] {
-                    width: 80%;
-                }
-        
-                input[type="number"] {
-                    width: 80px;
-                }
-        
-                input[type="button"] {
-                    background-color: #333;
-                    color: white;
-                    border: none;
-                    padding: 10px 20px;
-                    margin-top: 10px;
-                    cursor: pointer;
-                }
-        
-                input[type="button"]:hover {
-                    background-color: #555;
-                }
-                .secadastre  {
-                text-align: center;
-                color: aliceblue;
-                }
+}
+
+.livro button:hover {
+    background-color: #555;
+}
+
+/* Estilos do carrinho de compras */
+aside {
+    background-color:rgba(53, 53, 75, 0.5);
+    color: white;
+    padding: 20px;
+    width: 300px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+aside h2 {
+    font-size: 1.4em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+#total {
+    font-size: 1.2em;
+}
+
+/* Estilos do formulário */
+form {
+    background-color: rgba(53, 53, 75);
+    color: white;
+    border: 1px solid #ddd;
+    padding: 3%;
+    margin: 3% 0 3% 5%; /* Added 5% margin on the left */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: inline-block;
+    border-radius: 3%;
+    width: 45%; 
+
+    /* Additional styles */
+}
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+input[type="range"] {
+    width: 80%;
+    padding: 2%;
+    font-size: 1em;
+}
+
+input[type="number"] {
+    width: 30%;
+    padding: 2%;
+    font-size: 1em;
+}
+
+input[type="button"] {
+    color: #507ddf;
+    border: 2px solid #507ddf;
+    padding: 2% 5%;
+    margin-top: 2%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #507ddf;
+    border: 2px solid #507ddf;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+input[type="button"]:hover {
+    background-color: #555;
+}
+
+/* Additional form styles if needed */
+
+
+
+/* Estilos do rodapé */
+.secadastre{
+    text-align: center;
+}
+
+.secadastre a {
+    text-decoration: none;
+    color: #507ddf;
+    border: 2px solid #507ddf;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+
+
